@@ -23,3 +23,13 @@ Un boîtier ESP32 par salle, un serveur qui croise les données.
 Sans caméra : le système sait qu'il y a un intrus et combien, pas qui → pas de surveillance vidéo, compatible RGPD.
 
 Version en ligne des slides : https://claude.ai/artifact/BSaCvUpMptWbn3GMSKHRrp
+
+---
+
+# Nouveau sujet : Robot d'accueil intelligent de l'IUT
+
+Thèmes : Robotique, IA et Université du futur. Fichier : `SAE_IUT2030_robot_accueil.pptx` (généré par `build_robot.js`).
+
+- **Problématique** : comment accueillir et orienter chaque personne qui arrive à l'IUT, à tout moment, sans mobiliser le personnel ?
+- **Solution** : base mobile à roues (LiDAR + ultrasons), écran tactile, micro, haut-parleur, Raspberry Pi. L'IA comprend la question à l'oral, répond avec les infos de l'IUT en plusieurs langues et accompagne la personne jusqu'à la salle.
+- **Étapes** : 1) le robot répond à la voix ; 2) il se déplace seul dans un couloir.
