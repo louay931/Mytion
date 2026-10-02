@@ -73,13 +73,13 @@ const OUT = path.join(__dirname, "SAE_IUT2030_boitier_salle.pptx");
   s.addText("Solution envisagée", { placeholder: "title" });
   s.addText([
     { text: "Un boîtier ESP32 dans chaque salle :", options: { bold: true, breakLine: true } },
-    { text: "QR code qui change toutes les 5 s + vérification BLE", options: { bullet: true, breakLine: true } },
+    { text: "Lecteur NFC : l'étudiant badge avec sa carte étudiante", options: { bullet: true, breakLine: true } },
     { text: "Capteur de présence (PIR ou radar) et capteur de CO2", options: { bullet: true, breakLine: true } },
     { text: "Compteur d'entrées/sorties à la porte", options: { bullet: true, breakLine: true } },
     { text: "Le serveur compare avec l'emploi du temps :", options: { bold: true, breakLine: true } },
     { text: "quelqu'un dans la salle hors créneau", options: { bullet: true, breakLine: true } },
     { text: "plus de personnes comptées que d'émargés", options: { bullet: true, breakLine: true } },
-    { text: "scan par un étudiant qui n'est pas du groupe", options: { bullet: true } },
+    { text: "carte d'un étudiant qui n'est pas du groupe", options: { bullet: true } },
   ], { isTextBox: true, x: 0.5, y: 1.25, w: 5.95, h: 3.8, fontSize: 15, color: C.text1, paraSpaceAfter: 4, valign: "top" });
 
   // petit schéma
@@ -94,7 +94,7 @@ const OUT = path.join(__dirname, "SAE_IUT2030_boitier_salle.pptx");
 
   s.addText("Sans caméra : on sait combien de personnes sont en trop, pas qui (RGPD)",
     { isTextBox: true, x: 6.6, y: 4.15, w: 2.8, h: 0.8, fontSize: 13, italic: true, color: C.text1, align: "center", valign: "top" });
-  s.addNotes("Le cœur du projet est l'émargement ; l'occupation et l'intrusion sont des extensions avec le même boîtier. Les données se vérifient entre elles : 20 émargés mais salle vide = anomalie. Seul matériel en plus pour l'intrusion : le compteur à la porte. Démo prévue : une salle équipée avec un intrus simulé.");
+  s.addNotes("Le cœur du projet est l'émargement par carte étudiante (lecteur NFC RC522 sur l'ESP32) ; aucune caméra, ni dans la salle ni sur les téléphones. Si quelqu'un badge pour un absent, le compteur de la porte voit qu'il y a moins de personnes que de badges. L'occupation et l'intrusion sont des extensions avec le même boîtier. Les données se vérifient entre elles : 20 émargés mais salle vide = anomalie. Seul matériel en plus pour l'intrusion : le compteur à la porte. Démo prévue : une salle équipée avec un intrus simulé.");
 
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
